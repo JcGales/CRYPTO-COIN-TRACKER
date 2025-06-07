@@ -1,112 +1,265 @@
-.home{
-  padding: 0px 10px;
-  padding-bottom: 100px;
+
+.home {
+  background-color: #0a0a0a;
+  color: #ffffff;
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-.hero{
-  max-width: 600px;
-  margin: 80px auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+.hero {
+  background: radial-gradient(circle at 50% 50%, rgba(40, 40, 40, 0.8) 0%, rgba(10, 10, 10, 1) 70%);
+  border-radius: 16px;
+  padding: 4rem 2rem;
+  margin-bottom: 3rem;
   text-align: center;
-  gap: 30px;
+  position: relative;
+  overflow: hidden;
 }
 
-.hero h1{
-  font-size: max(4vw, 36px);
-}
-.hero p{
-  width: 75%;
-  color: #e3e3e3;
-  line-height: 1.5;
-}
-
-.hero form{
-  padding: 8px;
-  width: 80%;
-  background-color: white;
-  border-radius: 5px;
-  font-size: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(100, 200, 255, 0.1) 0%, transparent 70%);
+  animation: pulse 15s infinite alternate;
 }
 
-.hero input{
-  flex: 1;
-  font-size: 16px;
-  padding-left: 10px;
-  outline: none;
-  border: none;
+@keyframes pulse {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(25%, 25%);
+  }
+  100% {
+    transform: translate(-25%, -25%);
+  }
 }
 
-.hero button{
-  border: none;
-  background: #7927ff;
-  color: white;
-  font-size: 16px;
-  padding: 10px 30px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.cypto-table{
+.hero-content {
   max-width: 800px;
-  margin: auto;
-  background: linear-gradient(rgba(84,3,255,0.15), rgba(105,2,153,0.15));
-  border-radius: 15px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
-.table-layout{
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: block;
+}
+
+.glow-text {
+  text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+  display: block;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #a1a1aa;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.search-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  padding-right: 3.5rem;
+  border-radius: 50px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.search-input:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.search-button {
+  position: absolute;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+  fill: rgba(255, 255, 255, 0.7);
+  transition: fill 0.2s ease;
+}
+
+.search-button:hover .search-icon {
+  fill: #3b82f6;
+}
+
+
+.crypto-table {
+  background-color: rgba(20, 20, 20, 0.8);
+  border-radius: 12px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.table-header {
   display: grid;
   grid-template-columns: 0.5fr 2fr 1fr 1fr 1.5fr;
-  padding: 15px 20px;
-  align-items: center;
-  border-bottom: 1px solid #3c3c3c;
+  padding: 1.2rem 2rem;
+  background-color: rgba(30, 30, 30, 0.8);
+  font-weight: 600;
+  color: #a1a1aa;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.market-cap{
-  text-align: right;
+.table-row {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr 1fr 1fr 1.5fr;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  text-decoration: none;
+  color: white;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
-.table-layout:last-child{
-  border: none;
+
+.table-row:last-child {
+  border-bottom: none;
 }
-.table-layout div{
+
+.table-row:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.rank {
+  color: #a1a1aa;
+  font-weight: 500;
+}
+
+.coin-info {
   display: flex;
   align-items: center;
-  gap: 10px;
-}
-.table-layout div img{
-  width: 35px;
+  gap: 1rem;
 }
 
-.table-layout .green{
-  color: #00d515;
-  text-align: center;
-}
-.table-layout .red{
-  color: #ff4646;
-  text-align: center;
+.coin-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
 }
 
-@media(max-width:768px){
-  .table-layout{
-    grid-template-columns: 0.5fr 3fr 1fr 1fr;
+.coin-name {
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.coin-symbol {
+  color: #a1a1aa;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+.price {
+  font-weight: 500;
+}
+
+.change {
+  font-weight: 600;
+}
+
+.green {
+  color: #10b981;
+}
+
+.red {
+  color: #ef4444;
+}
+
+.market-cap {
+  text-align: right;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
   }
-  .market-cap{
-    display:none ;
+  
+  .table-header, .table-row {
+    grid-template-columns: 0.5fr 2fr 1fr;
+  }
+  
+  .market-cap {
+    display: none;
   }
 }
 
-@media(max-width:500px){
-  .table-layout div img{
-    width: 25px;
+@media (max-width: 480px) {
+  .home {
+    padding: 1rem;
   }
-  .table-layout{
-    font-size: 13px;
+  
+  .hero {
+    padding: 2rem 1rem;
   }
-  .hero form input{
-    width: 100px;
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .table-header, .table-row {
+    grid-template-columns: 0.5fr 2fr 1fr;
+    padding: 1rem;
+  }
+  
+  .coin-icon {
+    width: 24px;
+    height: 24px;
   }
 }
